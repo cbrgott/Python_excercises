@@ -30,15 +30,28 @@ class Solution:
         return median
 
 ###### LONGEST SUBSTRING WITHOUT REPEATING CHARACTERS ############
-class Solution:
-    def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
-        listx = sorted(nums1+nums2)
-        z = len(listx) 
-        if (z % 2) == 0 :
-            median = (listx[int(z/2)-1]+listx[int(z/2)])/2
-        else :
-            median = listx[int((z-1)/2)]
-        return median
+class Solution(object):
+    def lengthOfLongestSubstring(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        max_length = 0
+        i=0
+        j=0
+        s_list = list(s[i:j])
+        while True :
+            for idx, value in enumerate(s_list):
+                if value == s[j] :
+                    i = idx+i+1
+                    break     
+            j = j+1
+            s_list = list(s[i:j])
+            length = len(s_list)
+            max_length = max(max_length, length)
+            if j == len(s) or s == '':
+                break    
+        return max_length    
 
 ####### CODE SIGNAL ########
 # You are given an array of integers a and two integers l and r. You task is to calculate a boolean array b, where b[i] = true if there exists an integer x, such that a[i] = (i + 1) * x and l ≤ x ≤ r. Otherwise, b[i] should be set to false.
