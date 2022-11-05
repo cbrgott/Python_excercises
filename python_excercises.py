@@ -51,7 +51,23 @@ class Solution(object):
             max_length = max(max_length, length)
             if j == len(s) or s == '':
                 break    
-        return max_length    
+        return max_length  
+
+### REVERSE INTEGER #####
+
+class Solution:
+    def reverse(self, x: int) -> int:
+        x_list = list(str(x))
+        x_reverse = x_list[::-1]
+        x_reverseint = (''.join(str(c) for c in x_reverse))
+        if x < 0:
+            z = -1*int(x_reverseint[0:-1])
+        else :
+            z = int(x_reverseint)
+        if (z > -2**31) & (z < (2**31)-1):
+             return z
+        else :
+             return 0
 
 ####### CODE SIGNAL ########
 # You are given an array of integers a and two integers l and r. You task is to calculate a boolean array b, where b[i] = true if there exists an integer x, such that a[i] = (i + 1) * x and l ≤ x ≤ r. Otherwise, b[i] should be set to false.
